@@ -177,3 +177,55 @@ footer .wrap.fg{padding-bottom:0}
 .th::before{display:none}
 .th svg,.sig .circ svg{height:84%;width:auto}
 .credit{font-size:12px;color:#9c8c7e;margin-top:8px}
+
+/* Harga menu & notifikasi keranjang */
+.pr .hg{font-size:14px}
+@media(max-width:480px){.pr{flex-direction:column-reverse;align-items:flex-end;gap:6px}}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;gap:14px;align-items:center;border:0;border-radius:999px;background:var(--accd);color:#fff;padding:12px 20px;font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.fab[hidden]{display:none}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:9;display:flex;gap:12px;align-items:center;max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:14px;font-size:14px;transition:opacity .2s,transform .2s;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:none;color:var(--acc);font:700 14px 'Plus Jakarta Sans',sans-serif;cursor:pointer;padding:4px}
+.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.25)}}
+@media(prefers-reduced-motion:reduce){.bump{animation:none}.toast{transition:none}}
+
+/* ===== Intro logo berputar + grafis bergerak di landing ===== */
+:root{--t:3s}
+@keyframes spin{to{rotate:360deg}}
+@keyframes float{to{translate:0 -16px;rotate:25deg}}
+@keyframes bob{to{translate:0 -12px}}
+@keyframes morph{to{border-radius:42% 58% 45% 55%/55% 45% 55% 45%;rotate:25deg}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes bean{50%{rotate:180deg;scale:1.12}100%{rotate:360deg}}
+#intro{animation:out .6s calc(var(--t) - .1s) forwards;cursor:pointer}
+.ilogo{position:relative;width:136px;height:136px;margin:0 auto 18px;animation:zoom .8s both}
+.ilogo .ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 7s linear infinite}
+.ilogo .bean{position:absolute;left:50%;top:50%;width:42px;height:56px;margin:-28px 0 0 -21px;animation:bean 2.4s ease-in-out infinite}
+.il span{animation:up .6s calc(.7s + var(--i)*.1s) both}
+#intro small{animation:up .6s 1.5s both}
+.hero h1 span{animation:up .8s calc(var(--t) + var(--d)) both}
+.rv{animation:up .7s calc(var(--t) + var(--d)) both}
+.zoom{animation:zoom .9s calc(var(--t) + .1s + var(--d,0s)) both}
+#fx svg{animation:drop .9s cubic-bezier(.3,1.5,.5,1) both calc(var(--t) + .2s + var(--i)*.12s),float 5s ease-in-out infinite alternate calc(var(--t) + 1.3s + var(--i)*.25s)}
+.badge.zoom{animation:zoom .9s calc(var(--t) + .1s + var(--d,0s)) both,spin 16s linear infinite calc(var(--t) + 1.5s)}
+.sm1.zoom{animation:zoom .9s calc(var(--t) + .1s + var(--d,0s)) both,bob 4.5s ease-in-out infinite alternate calc(var(--t) + 1.5s)}
+.sm2.zoom{animation:zoom .9s calc(var(--t) + .1s + var(--d,0s)) both,bob 5.5s ease-in-out infinite alternate calc(var(--t) + 1.8s)}
+.blob{animation:morph 10s ease-in-out infinite alternate}
+.logo svg{animation:spin 9s linear infinite}
+.mq{white-space:nowrap;text-align:left;line-height:1.4;padding:16px 0}
+.mqt{display:inline-block;animation:mq 30s linear infinite}
+/* pembayaran, struk, dan keranjang tidak bergerak */
+.ov,.ov *,#drawer *{animation:none!important}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important}.il span,#intro small,.rv,.zoom,.hero h1 span{opacity:1}#intro{display:none}}
+/* perbaikan: huruf intro harus terlihat setelah animasi selesai */
+.il span,#intro small{opacity:1}
+
+/* foto latte art: fokus ke cangkir depan */
+.hero .circ img{transform:scale(1.45);transform-origin:60% 68%}
+/* perbaikan: lencana hero harus kecil dan tidak menutupi foto */
+.art svg.badge{width:104px;height:104px}
+@media(max-width:820px){.art svg.badge{width:90px;height:90px}}
+
+/* perbaikan: dua foto kecil di hero kembali di posisi kiri-bawah dan kanan-atas */
+.sm1.ph,.sm2.ph{position:absolute}
