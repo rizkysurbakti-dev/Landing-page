@@ -16,7 +16,7 @@ function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 
 /* Gambar menu: urutan coba = 1) foto sendiri di images/menu/nama-menu.jpg, 2) foto asli dari Wikimedia Commons, 3) ilustrasi gelas (khusus minuman tanpa foto). */
-var OWN=true,CM='https://commons.wikimedia.org/wiki/Special:FilePath/';
+var OWN=true,CM='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/0e/b8/8d/yumaju-coffee.jpg?w=1000&h=-1&s=1';
 var PH={espresso:'Espresso_BW_1.jpg',latte:'Latte_macchiato_with_coffee_beans.jpg',matcha:'Matcha_tea_latte_with_rosetta_latte_art.jpg',croissant:'00_Croissant._Yum.jpg',pac:'Pain_au_chocolat_Luc_Viatour.jpg',goug:'Petites_gougères_apéritif.jpg',brioche:'Brioche_aux_pépites_de_chocolat.jpg',cup:'A_small_cup_of_coffee.JPG'};
 var PAL={tea:['#c0702f','#e9b87a','#f7e3c3'],shake:['#d9a3a3','#f2cfcf','#fff0f0'],juice:['#e58a1f','#f4b34a','#fde0a0'],komb:['#b88a4f','#ddb97b','#f1dfb0'],coco:['#cfe0d0','#e6efe4','#fbfbf4'],choc:['#4a2f1f','#6b4630','#d9bfa0'],cara:['#c88a4a','#f0d3a5','#fff3dc'],des:['#7a4a2a','#f0e2c8','#fff8e8']};
 function gl(a){return '<svg viewBox="0 0 100 120"><path d="M20 20h60l-6 92a6 6 0 0 1-6 6H32a6 6 0 0 1-6-6z" fill="#fff" fill-opacity=".55" stroke="#cdbfb0" stroke-width="2"/><path d="M24 48h52l-4 62H28z" fill="'+a[1]+'"/><path d="M26 74h48l-2 36H28z" fill="'+a[0]+'"/><ellipse cx="50" cy="40" rx="30" ry="9" fill="'+a[2]+'"/></svg>'}
